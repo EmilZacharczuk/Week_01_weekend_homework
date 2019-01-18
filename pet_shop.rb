@@ -66,3 +66,14 @@ def add_pet_to_stock(shop, pet_name)
   end
   return count
 end
+
+def customer_cash(customer)
+  return customer[:cash]
+  # name = []
+  # for customer in customers
+  #   if customer[:name] == name
+  #     customer[:cash] = cash
+  #   end
+  # end
+  # return cash
+end
