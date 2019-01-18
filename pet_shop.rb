@@ -57,3 +57,12 @@ def remove_pet_by_name(shop, pet_name)
     end
   end
 end
+
+def add_pet_to_stock(shop, pet_name)
+  shop[:pets].push(pet_name)
+  count = 0
+  for pet in shop[:pets]
+    count += 1
+  end
+  return count
+end
