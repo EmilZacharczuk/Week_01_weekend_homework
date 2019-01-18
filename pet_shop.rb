@@ -69,11 +69,8 @@ end
 
 def customer_cash(customer)
   return customer[:cash]
-  # name = []
-  # for customer in customers
-  #   if customer[:name] == name
-  #     customer[:cash] = cash
-  #   end
-  # end
-  # return cash
+end
+
+def remove_customer_cash(customer, amount)
+  return customer[:cash] -= amount
 end
