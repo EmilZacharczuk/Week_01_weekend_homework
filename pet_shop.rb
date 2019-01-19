@@ -94,11 +94,13 @@ end
 
 def sell_pet_to_customer(shop, pet, customer)
   add_pet_to_customer(customer, pet)
+
   def pets_sold(shop)
     return shop[:admin][:pets_sold] += 1
   end
-#   def customer_cash(customer)
-#     return add_pet_to_customer(customer, pet)
-#     return customer[:cash] -= customer[:pets][:price]
-#   end
+
+  def customer_cash(customer)
+    amount = customer[:pets][0]
+    return customer[:cash] -= amount[:price]
+  end
 end
