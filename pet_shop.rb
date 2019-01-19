@@ -81,7 +81,7 @@ end
 
 def add_pet_to_customer(customer, pet)
   customer[:pets].push(pet)
-  return customer[:pets].count
+  return customer_pet_count(customer)
 end
 
 def customer_can_afford_pet(customers, new_pet)
@@ -90,4 +90,15 @@ def customer_can_afford_pet(customers, new_pet)
     else
       return true
     end
+end
+
+def sell_pet_to_customer(shop, pet, customer)
+  add_pet_to_customer(customer, pet)
+  def pets_sold(shop)
+    return shop[:admin][:pets_sold] += 1
+  end
+#   def customer_cash(customer)
+#     return add_pet_to_customer(customer, pet)
+#     return customer[:cash] -= customer[:pets][:price]
+#   end
 end
