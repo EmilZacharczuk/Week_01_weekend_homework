@@ -94,26 +94,28 @@ end
 
 def sell_pet_to_customer(shop, pet, customer)
 
-  if pet == nil
-      customer_pet_count(customer)
-      pets_sold(shop)
-      customer_cash(customer)
-  else
-      add_pet_to_customer(customer, pet)
-      increase_pets_sold(shop, 1)
-      amount = customer[:pets][0]
-      customer[:cash] -= amount[:price]
-      customer_cash(customer)
-  end
-  # add_pet_to_customer(customer, pet)
-  #
 
-  # #
-  # def customer_cash(customer)
-  #   if find_pet_by_name(shop, pet) == pet
-  #     amount = customer[:pets][0]
-  #     return customer[:cash] -= amount[:price]
-  #   else
-  #     return customer[:cash]
-  #   end
+  if pet == nil
+    customer_pet_count(customer)
+    pets_sold(shop)
+    customer_cash(customer)
+    total_cash(shop)
+  else
+    add_pet_to_customer(customer, pet)
+    increase_pets_sold(shop, 1)
+    amount = customer[:pets][0]
+    customer[:cash] -= amount[:price]
+    customer_cash(customer)
+    amount = customer[:pets][0]
+    shop[:admin][:total_cash] += amount[:price]
+    total_cash(shop)
+  end
+  new_pet = pet
+
+  # if customer_can_afford_pet(customer, pet) == false
+  #   customer_pet_count(customer)
+  #   pets_sold(shop)
+  #   customer_cash(customer)
+  #   total_cash(shop)
+  # end
 end
